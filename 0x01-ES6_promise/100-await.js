@@ -7,5 +7,9 @@ export default async function asyncUploadUser() {
     .then((resolve) => {
       [resultObj.photo, resultObj.user] = resolve;
       return resultObj;
-    }).catch(() => ({ photo: null, user: null }));
+    }).catch(() => {
+      resultObj.photo = null;
+      resultObj.user = null;
+      return resultObj;
+    });
 }
